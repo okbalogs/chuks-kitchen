@@ -63,8 +63,11 @@
 }
 
 .login-brand {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .login-brand .logo {
@@ -128,26 +131,19 @@
 
 .auth-input {
     width: 100%;
-    /* 16px (icon left) + 20px (icon width) + 12px (gap) = ~48px. User wanted more space. 
-       If user added 35px to placeholder, they visually wanted it ~80px+? 
-       Let's try a safe 50px-60px range but applied to the INPUT so text aligns too.
-       Let's use 56px as I tried before, or 60px to be safe. 
-       User's "start from" comment implies the text is currently too far left compared to placeholder. */
-    padding: 16px 16px 16px 60px;
+    box-sizing: border-box;
+    padding: 16px 16px 16px 48px !important;
+    box-sizing: border-box;
     border: 1px solid #E5E7EB;
     border-radius: 6px;
-    /* Slightly tighter radius */
     font-size: 0.95rem;
-    /* Slightly smaller font */
     color: #1F2937;
     background-color: #F3F4F6;
-    /* Darker gray background */
     transition: all 0.2s;
 }
 
 .auth-input::placeholder {
     color: #6B7280;
-    /* Removing specific padding here so both text and placeholder align */
 }
 
 .auth-input:focus {
@@ -269,11 +265,21 @@
 
     .login-left-panel {
         display: none;
-        /* Hide image on mobile to focus on login forms, or utilize a top banner if preferred. User design shows split screen desktop, will hide for mobile simplicity or stack. */
     }
 
     .login-right-panel {
         padding: 40px 24px;
+        /* Keep side padding, maybe reduce top if needed, but flex-start is key */
+        min-height: auto;
+        /* Allow it to be natural height, or 100vh but aligned top */
         min-height: 100vh;
+        justify-content: flex-start;
+        /* Align to top */
+        padding-top: 60px;
+        /* Give some breathing room at top, but not centered */
+    }
+
+    .page-login footer {
+        display: none;
     }
 }
