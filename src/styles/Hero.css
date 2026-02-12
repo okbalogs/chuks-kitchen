@@ -1,0 +1,189 @@
+.hero-section {
+    background-color: white;
+    min-height: 100vh;
+    /* overflow: hidden; Removed to allow scrolling to footer */
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Image takes exactly half width */
+    height: 100%;
+}
+
+.landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: auto;
+    /* Push content down */
+    padding-bottom: 40px;
+}
+
+.landing-header .logo {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.btn-sm {
+    padding: 8px 32px;
+    border-radius: 8px;
+    /* Matching the rounded rectangle look */
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1.5px solid #2563EB;
+    /* Bright blue */
+    color: #2563EB;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.btn-sm:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+.hero-image-container {
+    height: 100%;
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    height: 100%;
+}
+
+.hero-text-content {
+    max-width: 700px;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.hero-text-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-orange {
+    background-color: #FFF0E6;
+    /* Light orange background */
+}
+
+.feature-item span {
+    font-weight: 600;
+    color: #333;
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 60px;
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    /* Slightly squarer than before */
+    width: 100%;
+    max-width: 50look at the site and see what went wrongvw;
+}
+
+.btn-primary {
+    background-color: #FF7F50;
+    /* Match design orange */
+    border: 1px solid #FF7F50;
+}
+
+.btn-outline {
+    background-color: white;
+    color: #007bff;
+    /* Blue text as per design */
+    border: 1px solid #007bff;
+}
+
+.btn-outline:hover {
+    background-color: #f8f9fa;
+    color: #0056b3;
+}
+
+.hero-footer-text {
+    font-size: 0.8rem;
+    color: #999;
+    align-content: center;
+}
+
+.hero-footer-text a {
+    color: #007bff;
+    margin-left: 12px;
+}
+
+@media (max-width: 968px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image-container {
+        height: 300px;
+    }
+
+    .hero-content-container {
+        padding: 40px 20px;
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn-lg {
+        max-width: none;
+    }
+}

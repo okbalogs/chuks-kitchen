@@ -1,0 +1,279 @@
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FAFAFA;
+}
+
+/* Left Panel - Image & Overlay */
+.login-left-panel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.login-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.login-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 127, 80, 0.85), rgba(255, 160, 122, 0.7));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.overlay-content {
+    max-width: 450px;
+}
+
+.overlay-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.overlay-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Right Panel - Form */
+.login-right-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    background-color: white;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-brand .logo {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.auth-form {
+    max-width: 450px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: #4B5563;
+    /* Darker gray icon */
+    z-index: 10;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+}
+
+.auth-input {
+    width: 100%;
+    /* 16px (icon left) + 20px (icon width) + 12px (gap) = ~48px. User wanted more space. 
+       If user added 35px to placeholder, they visually wanted it ~80px+? 
+       Let's try a safe 50px-60px range but applied to the INPUT so text aligns too.
+       Let's use 56px as I tried before, or 60px to be safe. 
+       User's "start from" comment implies the text is currently too far left compared to placeholder. */
+    padding: 16px 16px 16px 60px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    /* Slightly tighter radius */
+    font-size: 0.95rem;
+    /* Slightly smaller font */
+    color: #1F2937;
+    background-color: #F3F4F6;
+    /* Darker gray background */
+    transition: all 0.2s;
+}
+
+.auth-input::placeholder {
+    color: #6B7280;
+    /* Removing specific padding here so both text and placeholder align */
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+    /* Subtle ring */
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.forgot-password a {
+    color: #4B6BFB;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(255, 127, 80, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: #FF5722;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px;
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.social-btn:hover {
+    background-color: #F9FAFB;
+}
+
+.create-account {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.create-account a {
+    color: #4B6BFB;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+/* Validation Styles */
+.input-error {
+    border-color: #EF4444;
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+@media (max-width: 968px) {
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .login-left-panel {
+        display: none;
+        /* Hide image on mobile to focus on login forms, or utilize a top banner if preferred. User design shows split screen desktop, will hide for mobile simplicity or stack. */
+    }
+
+    .login-right-panel {
+        padding: 40px 24px;
+        min-height: 100vh;
+    }
+}

@@ -1,0 +1,26 @@
+/* Register page reuses most of Login.css but we can add specific overrides here if needed */
+.register-form-group {
+    margin-bottom: 16px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+}
+
+.checkbox-group a {
+    color: #4B6BFB;
+    text-decoration: none;
+}

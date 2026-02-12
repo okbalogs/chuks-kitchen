@@ -1,0 +1,57 @@
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.menu-header p {
+    color: var(--color-text-muted);
+}
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: #FFF8F5;
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
