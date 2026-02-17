@@ -49,8 +49,8 @@ const Login = () => {
 
         if (validateForm()) {
             console.log('Login attempt with:', formData);
-            // Mock login success - navigate to menu
-            navigate('/menu');
+            // Mock login success - navigate to home dashboard
+            navigate('/home');
         }
     };
 

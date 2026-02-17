@@ -1,0 +1,51 @@
+.hero-search-container {
+    position: absolute;
+    bottom: -30px;
+    /* Overlap the bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    z-index: 20;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    /* Pill shape */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    height: 60px;
+}
+
+.search-icon {
+    margin-right: 15px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-btn {
+    background-color: var(--color-primary);
+    /* Orange */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: none;
+    /* Design doesn't show button explicitly, usually just icon + text. But often acts as submit. Let's hide for now to match clean look or keep as option. Design shows just icon and text. */
+}

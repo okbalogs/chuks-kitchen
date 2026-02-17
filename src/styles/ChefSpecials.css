@@ -1,0 +1,26 @@
+.chef-specials-section {
+    padding: 60px 0;
+    background-color: #F9FAFB;
+}
+
+.chef-specials-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.specials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .specials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

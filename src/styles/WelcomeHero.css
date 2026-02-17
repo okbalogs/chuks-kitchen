@@ -1,0 +1,253 @@
+.welcome-hero-section {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.welcome-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.welcome-landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: auto;
+    padding-bottom: 40px;
+}
+
+.welcome-landing-header .logo {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.btn-sm {
+    padding: 8px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1.5px solid #2563EB;
+    color: #2563EB;
+    background: transparent;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-sm:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+.welcome-hero-image-container {
+    height: 100%;
+    position: relative;
+}
+
+.welcome-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-hero-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    height: 100%;
+}
+
+.welcome-hero-text-content {
+    max-width: 700px;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-hero-text-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.welcome-hero-text-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.welcome-hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-orange {
+    background-color: #FFF0E6;
+}
+
+.feature-item span {
+    font-weight: 600;
+    color: #333;
+}
+
+.welcome-hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 60px;
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 50vw;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #FF7F50;
+    border: 1px solid #FF7F50;
+    color: white;
+}
+
+.btn-outline {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-outline:hover {
+    background-color: #f8f9fa;
+    color: #0056b3;
+}
+
+.welcome-hero-footer-text {
+    font-size: 0.8rem;
+    color: #999;
+    align-content: center;
+}
+
+.welcome-hero-footer-text a {
+    color: #007bff;
+    margin-left: 12px;
+}
+
+/* Mobile Logo default hidden */
+.mobile-logo {
+    display: none;
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 968px) {
+    .welcome-hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .welcome-hero-img {
+        height: 350px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .welcome-landing-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        justify-content: flex-end;
+        background: transparent;
+        z-index: 10;
+        border: none;
+        margin-bottom: 0;
+    }
+
+    .welcome-landing-header .desktop-logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        display: block;
+        text-align: center;
+    }
+
+    .welcome-hero-content-container {
+        padding: 32px 24px 40px;
+        background: white;
+        margin-top: -24px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .welcome-hero-text-content {
+        align-items: center;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .welcome-hero-text-content h1 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+
+    .welcome-hero-text-content p {
+        margin-bottom: 32px;
+        font-size: 1rem;
+    }
+
+    .welcome-hero-features {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .feature-item {
+        background-color: #F9FAFB;
+        padding: 12px 16px;
+        border-radius: 12px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn-lg {
+        width: 100%;
+        max-width: 90vw;
+    }
+
+    .welcome-hero-section+footer,
+    .welcome-hero-footer-text {
+        display: none;
+    }
+}

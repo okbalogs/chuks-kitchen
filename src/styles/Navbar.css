@@ -1,0 +1,106 @@
+.navbar-home {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-script, 'Brush Script MT', cursive);
+    font-size: 1.8rem;
+    color: #FF7F50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links-center {
+    display: flex;
+    gap: 200px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #FF7F50;
+}
+
+.login-btn {
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+.container {
+  max-width: 90vw !important;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .nav-links-center {
+        position: absolute;
+        top: 60px;
+        /* Below navbar */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Hidden by default */
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links-center.mobile-open {
+        display: flex;
+    }
+
+    .navbar-home {
+        padding: 10px 0;
+    }
+
+    .navbar-content {
+        padding: 0 15px;
+        /* Ensure padding on edges */
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        /* Slightly smaller logo on mobile */
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    /* Ensure hamburger is visible and aligned */
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+        padding: 0;
+    }
+}

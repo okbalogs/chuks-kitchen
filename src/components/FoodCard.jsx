@@ -1,33 +1,29 @@
 import React from 'react';
-import { ShoppingCart, Star } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles/FoodCard.css';
 
-const FoodCard = ({ item }) => {
-    const { addToCart } = useCart();
+const FoodCard = ({ id, title, description, price, image }) => {
+    const navigate = useNavigate();
 
     return (
-        <div className="food-card">
-            <div className="card-image">
-                <img src={item.image} alt={item.name} />
-                <span className="category-tag">{item.category}</span>
+        <div className="food-card" onClick={() => navigate(`/menu/${id}`)} style={{ cursor: 'pointer' }}>
+            <div className="food-img-container">
+                <img src={image} alt={title} className="food-img" />
             </div>
-            <div className="card-content">
-                <div className="card-header">
-                    <h3>{item.name}</h3>
-                    <div className="rating">
-                        <Star size={14} fill="#FFC107" stroke="#FFC107" />
-                        <span>{item.rating}</span>
-                    </div>
-                </div>
-                <p className="description">{item.description}</p>
-                <div className="card-footer">
-                    <span className="price">₦{item.price.toLocaleString()}</span>
+            <div className="food-info">
+                <h3>{title}</h3>
+                <p className="food-desc">{description}</p>
+                <div className="food-action">
+                    <span className="food-price">₦{(price || 0).toLocaleString()}</span>
                     <button
-                        className="add-btn"
-                        onClick={() => addToCart(item)}
+                        className="add-cart-btn"
+                        aria-label="View details"
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevent double navigation if parent also clicks
+                            navigate(`/menu/${id}`);
+                        }}
                     >
-                        Add to Cart
+                        +
                     </button>
                 </div>
             </div>

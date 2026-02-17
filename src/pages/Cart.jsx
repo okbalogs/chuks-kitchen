@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Trash2, Plus, Minus, ArrowLeft } from 'lucide-react';
+import { Plus, Minus, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import '../styles/Cart.css';
 
 const Cart = () => {
-    const { cartItems, updateQuantity, removeFromCart, cartTotal } = useCart();
+    const { cartItems, updateQuantity, removeFromCart } = useCart();
 
     if (cartItems.length === 0) {
         return (
@@ -24,67 +24,65 @@ const Cart = () => {
 
     return (
         <div className="page-cart container section">
-            <Link to="/menu" className="back-link">
-                <ArrowLeft size={16} /> Back to Menu
-            </Link>
+            <h2 className="cart-header-title">Your Cart</h2>
 
-            <h2>Your Cart ({cartItems.length} items)</h2>
+            <div className="cart-list">
+                {cartItems.map(item => (
+                    <div key={item.id} className="cart-item-card">
+                        <div className="cart-item-img-container">
+                            <img src={item.image} alt={item.name} className="cart-item-img" />
+                        </div>
 
-            <div className="cart-container">
-                <div className="cart-items">
-                    {cartItems.map(item => (
-                        <div key={item.id} className="cart-item">
-                            <div className="cart-item-image">
-                                <img src={item.image} alt={item.name} />
-                            </div>
-                            <div className="cart-item-details">
-                                <h3>{item.name}</h3>
-                                <p className="item-price">₦{item.price.toLocaleString()}</p>
-                            </div>
-                            <div className="cart-item-actions">
-                                <div className="quantity-controls">
-                                    <button onClick={() => updateQuantity(item.id, -1)}>
-                                        <Minus size={16} />
-                                    </button>
-                                    <span>{item.quantity}</span>
-                                    <button onClick={() => updateQuantity(item.id, 1)}>
-                                        <Plus size={16} />
-                                    </button>
-                                </div>
-                                <button
-                                    className="remove-btn"
-                                    onClick={() => removeFromCart(item.id)}
-                                >
-                                    <Trash2 size={18} />
+                        <div className="cart-item-info">
+                            <h3 className="cart-item-title">{item.name}</h3>
+                            {/* Static description for now as option details aren't fully piped yet */}
+                            <p className="cart-item-desc">
+                                {item.selectedOptionsDescription || "Signature meal with authentic flavors"}
+                            </p>
+                        </div>
+
+                        <div className="cart-item-actions">
+                            <div className="qty-controls">
+                                <button className="qty-btn" onClick={() => updateQuantity(item.id, 1)}>
+                                    <Plus size={16} />
+                                </button>
+                                <span className="qty-val">{item.quantity}</span>
+                                <button className="qty-btn" onClick={() => updateQuantity(item.id, -1)}>
+                                    <Minus size={16} />
                                 </button>
                             </div>
-                            <div className="cart-item-total">
+
+                            <div className="item-price-display">
                                 ₦{(item.price * item.quantity).toLocaleString()}
                             </div>
+
+                            <button
+                                className="remove-item-btn"
+                                onClick={() => removeFromCart(item.id)}
+                            >
+                                <X size={16} />
+                            </button>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
+            </div>
 
-                <div className="cart-summary">
-                    <h3>Order Summary</h3>
-                    <div className="summary-row">
-                        <span>Subtotal</span>
-                        <span>₦{cartTotal.toLocaleString()}</span>
-                    </div>
-                    <div className="summary-row">
-                        <span>Delivery Fee</span>
-                        <span>₦1,000</span>
-                    </div>
-                    <div className="summary-divider"></div>
-                    <div className="summary-row total">
-                        <span>Total</span>
-                        <span>₦{(cartTotal + 1000).toLocaleString()}</span>
-                    </div>
+            <div className="cart-footer-actions">
+                <Link to="/menu" className="add-more-btn">
+                    <Plus size={18} /> Add more items from Chuks Kitchen
+                </Link>
+            </div>
 
-                    <Link to="/checkout" className="btn btn-primary btn-block">
-                        Proceed to Checkout
-                    </Link>
-                </div>
+            {/* Total and Checkout - kept simple or hidden as per screenshot only showed list? 
+                Screenshot shows list but checkout flow implies a total is needed. 
+                I'll keep a simple total section below or leave it implicit if user only wants the list view match.
+                The screenshot is just the list. But a real cart needs checkout. 
+                I will add a checkout button below the "Add more" link to be functional.
+            */}
+            <div className="cart-summary" style={{ marginTop: '40px', textAlign: 'right' }}>
+                <Link to="/checkout" className="btn btn-primary btn-lg">
+                    Checkout
+                </Link>
             </div>
         </div>
     );

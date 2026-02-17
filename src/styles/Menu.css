@@ -1,57 +1,148 @@
-.menu-header {
-    text-align: center;
-    margin-bottom: 40px;
+/* Page Layout */
+.page-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.menu-header h2 {
-    font-size: 2.5rem;
-    color: var(--color-secondary);
-    margin-bottom: 8px;
+.menu-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    position: relative;
+    align-items: start;
 }
 
-.menu-header p {
-    color: var(--color-text-muted);
+/* Sidebar Styles */
+.menu-sidebar {
+    position: sticky;
+    top: 100px;
+    /* Adjust based on navbar height */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.05); */
+    /* Optional: if sidebar needs specific background */
 }
 
-.category-filter {
+.menu-sidebar h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-secondary, #2D2D2D);
+}
+
+.category-list {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 12px;
-    margin-bottom: 40px;
 }
 
-.filter-btn {
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-    color: var(--color-text-muted);
-    font-weight: 500;
+.category-btn {
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: var(--color-text-muted, #555);
+    cursor: pointer;
+    border-radius: 8px;
     transition: all 0.2s;
+    font-weight: 500;
 }
 
-.filter-btn:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+.category-btn:hover {
     background-color: #FFF8F5;
+    /* Light orange tint */
+    color: var(--color-primary, #ea580c);
 }
 
-.filter-btn.active {
-    background-color: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
+.category-btn.active {
+    background-color: #FFE4D6;
+    /* Stronger orange tint */
+    color: var(--color-primary, #ea580c);
+    font-weight: 700;
+}
+
+/* Main Content Styles */
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.menu-section {
+    scroll-margin-top: 100px;
+    /* For smooth scrolling with sticky header */
+}
+
+.section-header {
+    background-color: #FFE4D6;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    border-radius: 4px;
+    border-left: 4px solid var(--color-primary, #ea580c);
+}
+
+.section-header h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--color-secondary, #2D2D2D);
 }
 
 .food-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
 }
 
-.empty-state {
-    text-align: center;
-    padding: 60px 0;
-    color: var(--color-text-muted);
-    font-style: italic;
+/* Popular Section Layout - maybe horizontal scroll or just grid? 
+   Ref image shows grid for "Popular", same as others. */
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .menu-layout {
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-layout {
+        grid-template-columns: 1fr;
+        /* Stack sidebar on top */
+    }
+
+    .menu-sidebar {
+        position: static;
+        margin-bottom: 20px;
+        padding: 0;
+        background: transparent;
+    }
+
+    .category-list {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+    }
+
+    .category-btn {
+        white-space: nowrap;
+        background-color: white;
+        border: 1px solid #eee;
+    }
+
+    .category-btn.active {
+        border-color: var(--color-primary, #ea580c);
+    }
+
+    .section-header {
+        padding: 10px 15px;
+    }
+
+    .section-header h3 {
+        font-size: 1.1rem;
+    }
 }
