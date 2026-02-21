@@ -4,8 +4,8 @@ import { Mail, Lock, Eye, EyeOff, Phone, CheckSquare } from 'lucide-react';
 import { GoogleIcon, AppleIcon } from '../components/SocialIcons';
 import Footer from '../components/Footer';
 import heroImage from '../assets/images/hero-family.png';
-import '../styles/Login.css'; // Reuse main layout styles
-import '../styles/Register.css'; // Specific register styles
+import '../styles/Login.css';
+import '../styles/Register.css';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -51,7 +51,7 @@ const Register = () => {
         e.preventDefault();
         if (validateForm()) {
             console.log('Register attempt:', formData);
-            // Mock registration logic
+
             navigate('/login');
         }
     };
@@ -59,7 +59,6 @@ const Register = () => {
     return (
         <div className="page-login">
             <div className="login-container">
-                {/* Left Panel */}
                 <div className="login-left-panel">
                     <img src={heroImage} alt="Chuks Kitchen Welcome" className="login-bg-image" />
                     <div className="login-overlay">
@@ -73,7 +72,6 @@ const Register = () => {
                     </div>
                 </div>
 
-                {/* Right Panel */}
                 <div className="login-right-panel">
                     <div className="login-brand">
                         <span className="logo">Chuks Kitchen</span>

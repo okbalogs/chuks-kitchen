@@ -49,7 +49,7 @@ const Login = () => {
 
         if (validateForm()) {
             console.log('Login attempt with:', formData);
-            // Mock login success - navigate to home dashboard
+
             navigate('/home');
         }
     };
@@ -57,7 +57,7 @@ const Login = () => {
     return (
         <div className="page-login">
             <div className="login-container">
-                {/* Left Panel - Image & Welcome */}
+
                 <div className="login-left-panel">
                     <img src={heroImage} alt="Chuks Kitchen Welcome" className="login-bg-image" />
                     <div className="login-overlay">
@@ -71,7 +71,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* Right Panel - Login Form */}
+
                 <div className="login-right-panel">
                     <div className="login-brand">
                         <span className="logo">Chuks Kitchen</span>

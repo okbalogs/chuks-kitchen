@@ -10,9 +10,9 @@ const WelcomeHero = () => {
         <section className="welcome-hero-section">
             <div className="welcome-hero-grid">
                 <picture className="welcome-hero-image-container">
-                    {/* Desktop Image for screens larger than 968px */}
+
                     <source media="(min-width: 969px)" srcSet={heroFamily} />
-                    {/* Mobile Image (default or for smaller screens) */}
+
                     <img
                         src={heroFood}
                         alt="Delicious Nigerian Dish"
@@ -21,7 +21,7 @@ const WelcomeHero = () => {
                 </picture>
 
                 <div className="welcome-hero-content-container">
-                    {/* Custom Header: On mobile, Logo hides here and Sign In moves to top right */}
+
                     <header className="welcome-landing-header">
                         <div className="logo desktop-logo">
                             Chuks Kitchen

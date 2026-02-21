@@ -35,7 +35,7 @@ const Cart = () => {
 
                         <div className="cart-item-info">
                             <h3 className="cart-item-title">{item.name}</h3>
-                            {/* Static description for now as option details aren't fully piped yet */}
+
                             <p className="cart-item-desc">
                                 {item.selectedOptionsDescription || "Signature meal with authentic flavors"}
                             </p>

@@ -1,7 +1,7 @@
 .popular-categories-section {
     padding: 60px 0;
     background-color: #F9FAFB;
-    /* Light gray background from design? Or white? Design looks light gray. */
+
 }
 
 .section-title {
@@ -15,7 +15,7 @@
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* Responsive grid */
+
     gap: 30px;
     padding: 0 20px;
 }
@@ -60,6 +60,6 @@
 @media (max-width: 768px) {
     .categories-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        /* Slightly smaller definition for mobile */
+
     }
 }

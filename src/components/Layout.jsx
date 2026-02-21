@@ -21,7 +21,7 @@ const Layout = () => {
                         Chuks Kitchen
                     </Link>
 
-                    {/* Desktop Nav */}
+
                     <nav className="nav-links">
                         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
                         <Link to="/menu" className={location.pathname === '/menu' ? 'active' : ''}>Menu</Link>
@@ -50,7 +50,7 @@ const Layout = () => {
                 </div>
             </header>
 
-            {/* Mobile Nav Overlay */}
+
             <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
                 <nav className="mobile-nav-links">
                     <Link to="/" onClick={closeMenu}>Home</Link>

@@ -16,12 +16,7 @@ const Hero = () => {
 
             <div className="hero-content">
                 <header className="hero-header">
-                    {/* Logo or Brand Name could go here if in hero, usually Navbar is separate. Design shows Logo top left. 
-                         Assuming Navbar handles this, but for now matching previous implementation which had header inside hero?
-                         Actually Design shows "Chuks Kitchen" top left, Menu items center, Login right. That looks like a Navbar.
-                         I will assume standard Navbar is present or this is part of layout. 
-                         For this task, I focus on the HERO content: Headline + Subhead + Button + Search.
-                     */}
+
                 </header>
 
                 <div className="hero-text">

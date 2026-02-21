@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { foodItems } from '../data/mockData';
 import { useCart } from '../context/CartContext';
 import '../styles/FoodDetails.css';
-import { Clock, Leaf, Info } from 'lucide-react'; // Example icons
+import { Clock, Leaf, Info } from 'lucide-react';
 
 const FoodDetails = () => {
     const { id } = useParams();
@@ -21,7 +21,7 @@ const FoodDetails = () => {
             setFood(item);
             setTotalPrice(item.price);
 
-            // Set default protein if options exist
+
             if (item.options && item.options.proteins) {
                 const defaultProtein = item.options.proteins.find(p => p.default);
                 if (defaultProtein) setSelectedProtein(defaultProtein.id);
@@ -34,13 +34,13 @@ const FoodDetails = () => {
 
         let price = food.price;
 
-        // Add protein price
+
         if (food.options?.proteins) {
             const protein = food.options.proteins.find(p => p.id === selectedProtein);
             if (protein) price += protein.price;
         }
 
-        // Add sides price
+
         if (food.options?.sides) {
             selectedSides.forEach(sideId => {
                 const side = food.options.sides.find(s => s.id === sideId);
@@ -83,7 +83,7 @@ const FoodDetails = () => {
                                 <div className="tags-container">
                                     {food.options.tags.map((tag, index) => (
                                         <div key={index} className="tag-item">
-                                            <Clock size={16} className="tag-icon" /> {/* Placeholder icon */}
+                                            <Clock size={16} className="tag-icon" />
                                             <span>{tag}</span>
                                         </div>
                                     ))}
@@ -91,7 +91,7 @@ const FoodDetails = () => {
                             )}
                         </div>
 
-                        {/* Protein Selection */}
+
                         {food.options?.proteins && (
                             <div className="options-section">
                                 <h3>Choose Your Protein</h3>
@@ -114,7 +114,7 @@ const FoodDetails = () => {
                             </div>
                         )}
 
-                        {/* Sides Selection */}
+
                         {food.options?.sides && (
                             <div className="options-section">
                                 <h3>Extra Sides (Optional)</h3>
@@ -136,7 +136,7 @@ const FoodDetails = () => {
                             </div>
                         )}
 
-                        {/* Special Instructions */}
+
                         <div className="options-section special-instructions">
                             <h3>Special Instructions</h3>
                             <textarea

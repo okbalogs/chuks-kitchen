@@ -85,18 +85,14 @@
 @media (max-width: 768px) {
     .hero-section {
         height: 100vh;
-        /* Full screen height on mobile */
         min-height: 600px;
     }
 
     .hero-content {
         padding: 0 20px;
         text-align: center;
-        /* Center text on mobile */
         justify-content: flex-start;
-        /* Align to top */
         padding-top: 120px;
-        /* Push content down from navbar */
     }
 
     .hero-text h1 {

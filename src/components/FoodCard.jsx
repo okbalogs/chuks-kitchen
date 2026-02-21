@@ -19,7 +19,7 @@ const FoodCard = ({ id, title, description, price, image }) => {
                         className="add-cart-btn"
                         aria-label="View details"
                         onClick={(e) => {
-                            e.stopPropagation(); // Prevent double navigation if parent also clicks
+                            e.stopPropagation();
                             navigate(`/menu/${id}`);
                         }}
                     >

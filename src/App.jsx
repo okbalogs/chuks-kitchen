@@ -16,13 +16,13 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          {/* Pages with their own layout */}
+
           <Route path="/" element={<Welcome />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Other pages use the main Layout */}
+
           <Route element={<Layout />}>
             <Route path="/menu" element={<Menu />} />
             <Route path="/menu/:id" element={<FoodDetails />} />

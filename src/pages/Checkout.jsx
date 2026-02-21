@@ -7,7 +7,7 @@ import '../styles/Checkout.css';
 const Checkout = () => {
     const { cartItems, cartTotal, clearCart } = useCart();
     const navigate = useNavigate();
-    const [step, setStep] = useState('summary'); // summary, form, success
+    const [step, setStep] = useState('summary');
     const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const Checkout = () => {
         e.preventDefault();
         setLoading(true);
 
-        // Simulate API call
+
         setTimeout(() => {
             setLoading(false);
             setStep('success');

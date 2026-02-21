@@ -50,16 +50,16 @@
 }
 
 .container {
-  max-width: 90vw !important;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
+    max-width: 90vw !important;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 @media (max-width: 768px) {
     .nav-links-center {
         position: absolute;
         top: 60px;
-        /* Below navbar */
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: white;
@@ -67,7 +67,7 @@
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         display: none;
-        /* Hidden by default */
+        display: none;
         gap: 20px;
         text-align: center;
     }
@@ -82,19 +82,18 @@
 
     .navbar-content {
         padding: 0 15px;
-        /* Ensure padding on edges */
+        padding: 0 15px;
     }
 
     .logo {
         font-size: 1.5rem;
-        /* Slightly smaller logo on mobile */
+        font-size: 1.5rem;
     }
 
     .desktop-only {
         display: none;
     }
 
-    /* Ensure hamburger is visible and aligned */
     .mobile-menu-btn {
         display: block;
         background: none;

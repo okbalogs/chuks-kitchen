@@ -2,7 +2,7 @@ import React from 'react';
 import FoodCard from './FoodCard';
 import '../styles/ChefSpecials.css';
 
-// Placeholders
+
 import heroFood from '../assets/images/hero-food.png';
 import heroFamily from '../assets/images/hero-family.jpg';
 

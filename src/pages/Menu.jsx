@@ -7,11 +7,11 @@ import '../styles/Menu.css';
 const Menu = () => {
     const [activeSection, setActiveSection] = useState('popular');
 
-    // Handle scroll to update active section in sidebar
+
     useEffect(() => {
         const handleScroll = () => {
             const sections = categories.map(cat => document.getElementById(cat.id));
-            const scrollPosition = window.scrollY + 350; // Updated offset for taller hero
+            const scrollPosition = window.scrollY + 350;
 
             for (const section of sections) {
                 if (section && section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
@@ -28,7 +28,7 @@ const Menu = () => {
         const element = document.getElementById(id);
         if (element) {
             window.scrollTo({
-                top: element.offsetTop - 120, // Adjust for sticky header/sidebar
+                top: element.offsetTop - 120,
                 behavior: 'smooth'
             });
             setActiveSection(id);
@@ -40,10 +40,10 @@ const Menu = () => {
             <MenuHero />
 
             <div className="page-menu container section">
-                {/* Header if needed, though sidebar covers navigation now */}
+
 
                 <div className="menu-layout">
-                    {/* Sidebar Navigation */}
+
                     <aside className="menu-sidebar">
                         <h3>Menu Categories</h3>
                         <div className="category-list">
@@ -59,12 +59,12 @@ const Menu = () => {
                         </div>
                     </aside>
 
-                    {/* Main Content */}
+
                     <main className="menu-content">
                         {categories.map(category => {
                             const categoryItems = foodItems.filter(item => item.category === category.id);
 
-                            // Don't render empty sections
+
                             if (categoryItems.length === 0) return null;
 
                             return (

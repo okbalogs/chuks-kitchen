@@ -4,7 +4,7 @@
     min-height: 100vh;
 }
 
-/* Navbar */
+
 .navbar {
     background-color: var(--color-background);
     box-shadow: var(--shadow-sm);
@@ -91,12 +91,12 @@
     justify-content: center;
 }
 
-/* Main Content */
+
 .main-content {
     flex: 1;
 }
 
-/* Footer */
+
 .footer {
     background-color: var(--color-secondary);
     color: white;
@@ -160,11 +160,11 @@
     }
 }
 
-/* Mobile Nav Overlay */
+
 .mobile-nav {
     position: fixed;
     top: 70px;
-    /* Below navbar */
+    top: 70px;
     left: 0;
     width: 100%;
     height: calc(100vh - 70px);

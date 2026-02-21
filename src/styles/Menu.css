@@ -1,4 +1,3 @@
-/* Page Layout */
 .page-menu {
     max-width: 1200px;
     margin: 0 auto;
@@ -6,23 +5,23 @@
 }
 
 .menu-layout {
-    display: grid;
-    grid-template-columns: 250px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
     position: relative;
-    align-items: start;
 }
 
-/* Sidebar Styles */
 .menu-sidebar {
-    position: sticky;
-    top: 100px;
-    /* Adjust based on navbar height */
+    position: relative;
+    /* Changed from sticky to avoid blocking content */
+    z-index: 10;
     background: #fff;
     padding: 20px;
+    border: 1px solid #eee;
+    /* Add subtle border as per card look */
     border-radius: 8px;
-    /* box-shadow: 0 4px 6px rgba(0,0,0,0.05); */
-    /* Optional: if sidebar needs specific background */
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 .menu-sidebar h3 {
@@ -35,36 +34,44 @@
 .category-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
+    /* Remove gap for contiguous list look */
 }
 
 .category-btn {
     text-align: left;
-    background: none;
+    background: transparent;
     border: none;
-    padding: 10px 15px;
+    border-left: 4px solid transparent;
+    /* Prepare for active state */
+    padding: 12px 20px;
     font-size: 1rem;
-    color: var(--color-text-muted, #555);
+    color: var(--color-text-main, #333);
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 0;
+    /* Rectangular list items */
     transition: all 0.2s;
     font-weight: 500;
+    width: 100%;
+    /* Full width */
 }
 
 .category-btn:hover {
-    background-color: #FFF8F5;
-    /* Light orange tint */
+    background-color: #f9f9f9;
     color: var(--color-primary, #ea580c);
 }
 
 .category-btn.active {
     background-color: #FFE4D6;
-    /* Stronger orange tint */
-    color: var(--color-primary, #ea580c);
-    font-weight: 700;
+    /* Light orange bg */
+    color: var(--color-text-main, #333);
+    /* Keep text dark/readable */
+    font-weight: 600;
+    border-color: var(--color-primary, #ea580c);
+    /* Orange left border */
 }
 
-/* Main Content Styles */
+
 .menu-content {
     display: flex;
     flex-direction: column;
@@ -73,7 +80,7 @@
 
 .menu-section {
     scroll-margin-top: 100px;
-    /* For smooth scrolling with sticky header */
+    scroll-margin-top: 100px;
 }
 
 .section-header {
@@ -96,53 +103,22 @@
     gap: 24px;
 }
 
-/* Popular Section Layout - maybe horizontal scroll or just grid? 
-   Ref image shows grid for "Popular", same as others. */
 
-/* Responsive Design */
+
+
 @media (max-width: 900px) {
-    .menu-layout {
-        grid-template-columns: 200px 1fr;
-        gap: 20px;
-    }
+    /* Adjustments if needed, but flex layout handles mostly everything now */
 }
 
 @media (max-width: 768px) {
-    .menu-layout {
-        grid-template-columns: 1fr;
-        /* Stack sidebar on top */
-    }
-
     .menu-sidebar {
-        position: static;
-        margin-bottom: 20px;
-        padding: 0;
-        background: transparent;
-    }
-
-    .category-list {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        -webkit-overflow-scrolling: touch;
-        gap: 10px;
+        top: 60px;
+        /* Smaller navbar on mobile */
+        padding: 10px 0;
     }
 
     .category-btn {
-        white-space: nowrap;
-        background-color: white;
-        border: 1px solid #eee;
-    }
-
-    .category-btn.active {
-        border-color: var(--color-primary, #ea580c);
-    }
-
-    .section-header {
-        padding: 10px 15px;
-    }
-
-    .section-header h3 {
-        font-size: 1.1rem;
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }

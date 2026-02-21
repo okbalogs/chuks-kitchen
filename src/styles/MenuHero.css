@@ -1,7 +1,7 @@
 .menu-hero {
     position: relative;
     height: 450px;
-    /* Adjust height as needed */
+    height: 450px;
     width: 100%;
     margin-bottom: 40px;
 }
@@ -58,7 +58,7 @@
 .menu-hero-content span {
     margin-left: 10px;
     color: #FFD700;
-    /* Gold for star */
+    color: #FFD700;
 }
 
 @media (max-width: 768px) {
