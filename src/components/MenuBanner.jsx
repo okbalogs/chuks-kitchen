@@ -14,8 +14,8 @@ const MenuBanner = () => {
             <div className="banner-content container">
                 <h2>Introducing Our New Menu Additions!</h2>
                 <p>
-                    Explore exciting new dishes, crafted with the freshest ingredients
-                    and authentic Nigerian flavors. Limited time offer!
+                    Explore exciting new dishes, crafted with the freshest 
+                    ingredients and authentic Nigerian flavors. Limited time offer!
                 </p>
                 <Link to="/menu" className="btn btn-primary btn-lg">Discover what's new</Link>
             </div>

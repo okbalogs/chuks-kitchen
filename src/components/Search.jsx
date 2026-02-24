@@ -12,9 +12,6 @@ const Search = () => {
                     placeholder="What are you craving for today?"
                     className="search-input"
                 />
-                <button className="search-btn">
-                    Search
-                </button>
             </div>
         </div>
     );
