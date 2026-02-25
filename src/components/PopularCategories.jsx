@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import CategoryCard from './CategoryCard';
 import '../styles/PopularCategories.css';
 
@@ -22,10 +23,26 @@ const PopularCategories = () => {
     return (
         <section className="popular-categories-section">
             <div className="container">
-                <h2 className="section-title">Popular Categories</h2>
+                <motion.h2
+                    className="section-title"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Popular Categories
+                </motion.h2>
                 <div className="categories-grid">
-                    {categories.map((category) => (
-                        <CategoryCard key={category.id} title={category.title} image={category.image} />
+                    {categories.map((category, index) => (
+                        <motion.div
+                            key={category.id}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, margin: '-30px' }}
+                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                        >
+                            <CategoryCard title={category.title} image={category.image} />
+                        </motion.div>
                     ))}
                 </div>
             </div>
@@ -34,3 +51,4 @@ const PopularCategories = () => {
 };
 
 export default PopularCategories;
+

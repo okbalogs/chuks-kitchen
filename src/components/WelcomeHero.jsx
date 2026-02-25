@@ -1,24 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Utensils, MapPin, Truck } from 'lucide-react';
 import heroFamily from '../assets/images/hero-family-new.png';
 import heroFood from '../assets/images/jollof_fried_chicken.png';
 import '../styles/WelcomeHero.css';
 
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay: i * 0.15, duration: 0.6, ease: 'easeOut' }
+    })
+};
+
 const WelcomeHero = () => {
     return (
         <section className="welcome-hero-section">
             <div className="welcome-hero-grid">
-                <picture className="welcome-hero-image-container">
-
+                <motion.picture
+                    className="welcome-hero-image-container"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                >
                     <source media="(min-width: 969px)" srcSet={heroFamily} />
-
                     <img
                         src={heroFood}
                         alt="Delicious Nigerian Dish"
                         className="welcome-hero-img"
                     />
-                </picture>
+                </motion.picture>
 
                 <div className="welcome-hero-content-container">
 
@@ -32,16 +45,40 @@ const WelcomeHero = () => {
                     </header>
 
                     <div className="welcome-hero-text-content">
-                        <div className="logo mobile-logo">
+                        <motion.div
+                            className="logo mobile-logo"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={0}
+                        >
                             Chuks Kitchen
-                        </div>
-                        <h1>Your Authentic Taste of Nigeria</h1>
-                        <p>
+                        </motion.div>
+                        <motion.h1
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={1}
+                        >
+                            Your Authentic Taste of Nigeria
+                        </motion.h1>
+                        <motion.p
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={2}
+                        >
                             Experience homemade flavors delivered fresh to your desk or home.
                             We bring the rich culinary heritage of Nigeria right to your doorstep.
-                        </p>
+                        </motion.p>
 
-                        <div className="welcome-hero-features">
+                        <motion.div
+                            className="welcome-hero-features"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={3}
+                        >
                             <div className="feature-item">
                                 <div className="feature-icon bg-orange">
                                     <Utensils size={20} color="#FF7A18" />
@@ -62,12 +99,18 @@ const WelcomeHero = () => {
                                 </div>
                                 <span>Fast & Reliable Delivery</span>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="welcome-hero-actions">
+                        <motion.div
+                            className="welcome-hero-actions"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={4}
+                        >
                             <Link to="/login" className="btn btn-primary btn-lg">Start Your Order</Link>
                             <Link to="/about" className="btn btn-outline btn-lg">Learn More About Us</Link>
-                        </div>
+                        </motion.div>
 
                         <div className="welcome-hero-footer-text">
                             &copy; {new Date().getFullYear()} Chuks Kitchen. <Link to="/privacy">Privacy Policy</Link> <Link to="/terms">Terms of Service</Link>
@@ -80,3 +123,4 @@ const WelcomeHero = () => {
 };
 
 export default WelcomeHero;
+

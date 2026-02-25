@@ -60,7 +60,7 @@ const ChefSpecials = () => {
             <div className="container">
                 <h2 className="section-title">Chef's Specials</h2>
                 <div className="specials-grid">
-                    {specials.map((item) => (
+                    {specials.map((item, index) => (
                         <FoodCard
                             key={item.id}
                             id={item.id}
@@ -68,6 +68,7 @@ const ChefSpecials = () => {
                             description={item.description}
                             price={item.price}
                             image={item.image}
+                            index={index}
                         />
                     ))}
                 </div>

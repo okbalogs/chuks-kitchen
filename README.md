@@ -28,7 +28,7 @@ No backend or database is connected. All food data comes from a local mock data 
 | **React** | 19.2 | Component-based UI library — the core of the project |
 | **Vite** | 7.3 | Lightning-fast dev server and build tool; chosen over CRA for speed |
 | **React Router** | 7.13 | Client-side routing between pages |
-| **Framer Motion** | 12.34 | Smooth animations and transitions (used in hero/welcome sections) |
+| **Framer Motion** | 12.34 | Smooth entrance animations, scroll-triggered reveals, hover effects, and exit transitions across the app |
 | **Lucide React** | 0.563 | Lightweight, consistent SVG icon set (Menu, X, Plus, Minus, Mail, Lock, etc.) |
 | **Vanilla CSS** | — | All styling is hand-written CSS with CSS custom properties — no Tailwind, no CSS-in-JS |
 | **ESLint** | 9.39 | Linting for code quality |
@@ -39,7 +39,7 @@ No backend or database is connected. All food data comes from a local mock data 
 - **Vite** was chosen over Create React App because it's significantly faster during development (instant HMR) and produces smaller production bundles.
 - **Vanilla CSS** was used intentionally — each component has a dedicated `.css` file that sits alongside it in the `styles/` folder. This keeps the styling explicit and easy to trace without adding a build-time CSS framework.
 - **Lucide** was preferred over FontAwesome or Heroicons because it ships tree-shakeable ES modules, so only the icons actually used end up in the bundle.
-- **Framer Motion** handles the more complex entrance animations on the Welcome and Hero sections without writing raw CSS keyframes.
+- **Framer Motion** powers entrance animations (fade-in, slide-up) on the Welcome hero, Home hero, food cards, category cards, and cart items. It also handles hover lift effects on cards and smooth exit animations when removing cart items.
 
 ---
 
@@ -219,7 +219,7 @@ Any component can access the cart by calling the `useCart()` hook.
 7. **Testing** — Add unit tests with Vitest for the cart logic and component rendering. Add integration tests for the checkout flow.
 8. **Error boundaries** — Wrap route sections in React error boundaries so a crash in one page doesn't take down the whole app.
 9. **Loading states** — Add skeleton screens or loading spinners for when data would normally be fetched from an API.
-10. **Animation polish** — Extend Framer Motion usage beyond the Welcome hero to add page transition animations and micro-interactions throughout the app.
+10. **Page transitions** — Add animated route transitions using Framer Motion's `AnimatePresence` so navigating between pages feels seamless.
 
 ---
 
