@@ -6,7 +6,7 @@
 .welcome-hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
+    height: 100vh;
 }
 
 .welcome-landing-header {
