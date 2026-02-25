@@ -33,16 +33,14 @@ const Cart = () => {
                             <img src={item.image} alt={item.name} className="cart-item-img" />
                         </div>
 
-                        <div className="cart-item-info">
+                        <div className="cart-item-right">
                             <h3 className="cart-item-title">{item.name}</h3>
 
                             <p className="cart-item-desc">
                                 {item.selectedOptionsDescription || "Signature meal with authentic flavors"}
                             </p>
-                        </div>
 
-                        <div className="cart-item-actions">
-                            <div className="qty-controls">
+                            <div className="cart-item-qty-row">
                                 <button className="qty-btn" onClick={() => updateQuantity(item.id, 1)}>
                                     <Plus size={16} />
                                 </button>
@@ -52,16 +50,17 @@ const Cart = () => {
                                 </button>
                             </div>
 
-                            <div className="item-price-display">
-                                ₦{(item.price * item.quantity).toLocaleString()}
+                            <div className="cart-item-bottom-row">
+                                <div className="item-price-display">
+                                    ₦{(item.price * item.quantity).toLocaleString()}
+                                </div>
+                                <button
+                                    className="remove-item-btn"
+                                    onClick={() => removeFromCart(item.id)}
+                                >
+                                    <X size={16} />
+                                </button>
                             </div>
-
-                            <button
-                                className="remove-item-btn"
-                                onClick={() => removeFromCart(item.id)}
-                            >
-                                <X size={16} />
-                            </button>
                         </div>
                     </div>
                 ))}
@@ -73,12 +72,6 @@ const Cart = () => {
                 </Link>
             </div>
 
-            {/* Total and Checkout - kept simple or hidden as per screenshot only showed list? 
-                Screenshot shows list but checkout flow implies a total is needed. 
-                I'll keep a simple total section below or leave it implicit if user only wants the list view match.
-                The screenshot is just the list. But a real cart needs checkout. 
-                I will add a checkout button below the "Add more" link to be functional.
-            */}
             <div className="cart-summary" style={{ marginTop: '40px', textAlign: 'right' }}>
                 <Link to="/checkout" className="btn btn-primary btn-lg">
                     Checkout

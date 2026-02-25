@@ -62,7 +62,11 @@
 
 @media (max-width: 768px) {
     .menu-hero {
-        height: 250px;
+        height: 496px;
+    }
+
+    .menu-hero-content {
+        padding: 200px 20px;
     }
 
     .menu-hero-content h1 {

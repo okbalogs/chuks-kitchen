@@ -28,7 +28,6 @@
     margin-bottom: 28px;
 }
 
-/* Promo Code */
 .promo-row {
     margin-bottom: 28px;
 }
@@ -65,7 +64,6 @@
     white-space: nowrap;
 }
 
-/* Summary rows */
 .summary-rows {
     display: flex;
     flex-direction: column;
