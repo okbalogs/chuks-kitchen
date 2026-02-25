@@ -35,6 +35,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-column social-column">
+                    <h4>Follow Us</h4>
                     <a href="#">Facebook</a>
                     <a href="#">Twitter</a>
                     <a href="#">LinkedIn</a>

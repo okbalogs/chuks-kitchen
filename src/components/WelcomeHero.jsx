@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Utensils, MapPin, Truck } from 'lucide-react';
-import heroFamily from '../assets/images/hero-family.jpg';
-import heroFood from '../assets/images/hero-food.png';
+import heroFamily from '../assets/images/hero-family-new.png';
+import heroFood from '../assets/images/jollof_fried_chicken.png';
 import '../styles/WelcomeHero.css';
 
 const WelcomeHero = () => {

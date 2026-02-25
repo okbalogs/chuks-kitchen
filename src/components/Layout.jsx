@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, User, Search, Menu as MenuIcon, X } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { Menu as MenuIcon, X } from 'lucide-react';
 import Footer from './Footer';
 import '../styles/Layout.css';
+import '../styles/Navbar.css';
 
 const Layout = () => {
-    const { cartCount } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
 
@@ -15,50 +14,29 @@ const Layout = () => {
 
     return (
         <div className="app-container">
-            <header className="navbar">
+            <nav className="navbar-home">
                 <div className="container navbar-content">
-                    <Link to="/" className="logo" onClick={closeMenu}>
+                    <Link to="/home" className="logo" onClick={closeMenu}>
                         Chuks Kitchen
                     </Link>
 
-
-                    <nav className="nav-links">
-                        <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
-                        <Link to="/menu" className={location.pathname === '/menu' ? 'active' : ''}>Menu</Link>
-                        <Link to="/about">About Us</Link>
-                    </nav>
+                    <div className={`nav-links-center ${isMenuOpen ? 'mobile-open' : ''}`}>
+                        <Link to="/home" className={`nav-link ${location.pathname === '/home' ? 'active' : ''}`} onClick={closeMenu}>Home</Link>
+                        <Link to="/menu" className={`nav-link ${location.pathname === '/menu' ? 'active' : ''}`} onClick={closeMenu}>Explore</Link>
+                        <Link to="/orders" className={`nav-link ${location.pathname === '/orders' ? 'active' : ''}`} onClick={closeMenu}>My Orders</Link>
+                        <Link to="/account" className={`nav-link ${location.pathname === '/account' ? 'active' : ''}`} onClick={closeMenu}>Account</Link>
+                    </div>
 
                     <div className="nav-actions">
-                        <div className="search-bar">
-                            <Search size={18} />
-                            <input type="text" placeholder="Search" />
+                        <div className="nav-auth desktop-only">
+                            <Link to="/login" className="btn btn-primary login-btn">Login</Link>
                         </div>
-
-                        <Link to="/cart" className="icon-btn" onClick={closeMenu}>
-                            <ShoppingCart size={24} />
-                            {cartCount > 0 && <span className="badge">{cartCount}</span>}
-                        </Link>
-
-                        <Link to="/login" className="icon-btn desktop-only">
-                            <User size={24} />
-                        </Link>
-
                         <button className="icon-btn mobile-menu-btn" onClick={toggleMenu}>
                             {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
                         </button>
                     </div>
                 </div>
-            </header>
-
-
-            <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
-                <nav className="mobile-nav-links">
-                    <Link to="/" onClick={closeMenu}>Home</Link>
-                    <Link to="/menu" onClick={closeMenu}>Menu</Link>
-                    <Link to="/about" onClick={closeMenu}>About Us</Link>
-                    <Link to="/login" onClick={closeMenu}>Sign In / Register</Link>
-                </nav>
-            </div>
+            </nav>
 
             <main className="main-content">
                 <Outlet />

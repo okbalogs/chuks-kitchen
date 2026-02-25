@@ -150,8 +150,6 @@ const FoodDetails = () => {
                             <button
                                 className="btn btn-primary btn-lg btn-block"
                                 onClick={() => {
-                                    // Mock adding with simple props for now, to ensure Cart works
-                                    // In a real app we'd pass all options
                                     const proteinName = food.options?.proteins?.find(p => p.id === selectedProtein)?.name || '';
                                     const sidesNames = selectedSides.map(sId => food.options?.sides?.find(s => s.id === sId)?.name).filter(Boolean).join(', ');
                                     const description = [proteinName, sidesNames].filter(Boolean).join(', ');

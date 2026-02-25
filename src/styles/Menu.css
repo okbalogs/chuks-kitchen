@@ -13,12 +13,10 @@
 
 .menu-sidebar {
     position: relative;
-    /* Changed from sticky to avoid blocking content */
     z-index: 10;
     background: #fff;
     padding: 20px;
     border: 1px solid #eee;
-    /* Add subtle border as per card look */
     border-radius: 8px;
     margin-bottom: 30px;
     width: 100%;
@@ -35,7 +33,6 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    /* Remove gap for contiguous list look */
 }
 
 .category-btn {
@@ -43,17 +40,14 @@
     background: transparent;
     border: none;
     border-left: 4px solid transparent;
-    /* Prepare for active state */
     padding: 12px 20px;
     font-size: 1rem;
     color: var(--color-text-main, #333);
     cursor: pointer;
     border-radius: 0;
-    /* Rectangular list items */
     transition: all 0.2s;
     font-weight: 500;
     width: 100%;
-    /* Full width */
 }
 
 .category-btn:hover {
@@ -63,12 +57,9 @@
 
 .category-btn.active {
     background-color: #FFE4D6;
-    /* Light orange bg */
     color: var(--color-text-main, #333);
-    /* Keep text dark/readable */
     font-weight: 600;
     border-color: var(--color-primary, #ea580c);
-    /* Orange left border */
 }
 
 
@@ -107,13 +98,11 @@
 
 
 @media (max-width: 900px) {
-    /* Adjustments if needed, but flex layout handles mostly everything now */
 }
 
 @media (max-width: 768px) {
     .menu-sidebar {
         top: 60px;
-        /* Smaller navbar on mobile */
         padding: 10px 0;
     }
 

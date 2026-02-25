@@ -47,3 +47,9 @@
     display: none;
     display: none;
 }
+
+@media (max-width: 900px) {
+    .hero-search-container {
+        max-width: 90vw;
+    }
+}

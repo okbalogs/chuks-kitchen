@@ -12,7 +12,7 @@ const MenuHero = () => {
 
             <div className="menu-hero-content container">
                 <h1>Chuks Kitchen</h1>
-                <p>Chuks Kitchen Nigerian Home Cooking <span>★ 4.8 (1.2k)</span></p>
+                <p>Chuks Kitchen Nigerian Home Cooking  4.8 (1.2k)</p>
             </div>
         </section>
     );

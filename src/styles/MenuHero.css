@@ -1,7 +1,6 @@
 .menu-hero {
     position: relative;
-    height: 450px;
-    height: 450px;
+    height: 586px;
     width: 100%;
     margin-bottom: 40px;
 }
@@ -32,13 +31,13 @@
 }
 
 .menu-hero-content {
-    position: relative;
+    position: absolute;
     z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 30px;
+    padding: 293px 100px;
     color: white;
 }
 

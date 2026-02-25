@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, Phone, CheckSquare } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, Phone } from 'lucide-react';
 import { GoogleIcon, AppleIcon } from '../components/SocialIcons';
 import Footer from '../components/Footer';
-import heroImage from '../assets/images/hero-family.png';
+import heroImage from '../assets/images/hero-family-new.png';
 import '../styles/Login.css';
 import '../styles/Register.css';
 

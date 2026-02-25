@@ -2,15 +2,11 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    /* Softer, more spread shadow */
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
     height: 100%;
-    /* Ensure equal height in grid */
     display: flex;
     flex-direction: column;
-    border: 1px solid transparent;
-    /* Prevent jump on hover if border added */
 }
 
 .food-card:hover {
@@ -21,9 +17,7 @@
 .food-img-container {
     width: 100%;
     height: 180px;
-    /* Fixed height for consistency */
     overflow: hidden;
-    position: relative;
     background-color: #f5f5f5;
 }
 
@@ -40,7 +34,6 @@
 
 .food-info {
     padding: 20px;
-    /* Increased padding */
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -52,10 +45,6 @@
     margin-bottom: 8px;
     color: var(--color-secondary, #2D2D2D);
     line-height: 1.3;
-}
-
-
-.food-info h3 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -65,7 +54,6 @@
 
 .food-desc {
     font-size: 0.85rem;
-    /* Slightly smaller */
     color: var(--color-text-muted, #666);
     margin-bottom: 20px;
     line-height: 1.5;
@@ -88,7 +76,6 @@
     font-weight: 700;
     color: var(--color-primary, #ea580c);
     font-size: 1rem;
-    /* Adjusted to match design */
 }
 
 .add-cart-btn {
@@ -102,23 +89,14 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    /* Clean plus sign */
     font-weight: 400;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
     padding: 0;
-    /* Remove padding */
     line-height: 1;
 }
 
 .add-cart-btn:hover {
     background-color: #c2410c;
     transform: scale(1.1);
-}
-
-
-@media (max-width: 768px) {
-    .food-img-container {
-        height: 180px;
-    }
 }

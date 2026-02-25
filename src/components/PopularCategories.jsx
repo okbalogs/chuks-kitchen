@@ -2,21 +2,20 @@ import React from 'react';
 import CategoryCard from './CategoryCard';
 import '../styles/PopularCategories.css';
 
-
-import heroFood from '../assets/images/hero-food.png';
-import heroFamily from '../assets/images/hero-family.jpg';
-import jollof from '../assets/images/jollof.png';
-import swallow from '../assets/images/swallow.png';
-import bbq from '../assets/images/bbq.png';
+import jollofFriedChicken from '../assets/images/jollof_fried_chicken.png';
+import fufu_okra from '../assets/images/fufu_okra.png';
+import pepperedSnail from '../assets/images/peppered_snail.png';
 import sweet from '../assets/images/sweet.png';
+import amalaGbegiri from '../assets/images/amala_gbegiri.png';
+import jollofPlantain from '../assets/images/jollof_plantain.png';
 
 const categories = [
-    { id: 1, title: 'Jollof Delights', image: jollof },
-    { id: 2, title: 'Swallow & Soups', image: swallow },
-    { id: 3, title: 'Grills & BBQ', image: bbq },
+    { id: 1, title: 'Jollof Delights', image: jollofFriedChicken },
+    { id: 2, title: 'Swallow & Soups', image: fufu_okra },
+    { id: 3, title: 'Grills & BBQ', image: pepperedSnail },
     { id: 4, title: 'Sweet Treats', image: sweet },
-    { id: 5, title: 'Soups', image: swallow },
-    { id: 6, title: 'Specials', image: heroFood },
+    { id: 5, title: 'Soups', image: amalaGbegiri },
+    { id: 6, title: 'Specials', image: jollofPlantain },
 ];
 
 const PopularCategories = () => {
@@ -25,8 +24,8 @@ const PopularCategories = () => {
             <div className="container">
                 <h2 className="section-title">Popular Categories</h2>
                 <div className="categories-grid">
-                    {categories.map((category, index) => (
-                        <CategoryCard key={index} title={category.title} image={category.image} />
+                    {categories.map((category) => (
+                        <CategoryCard key={category.id} title={category.title} image={category.image} />
                     ))}
                 </div>
             </div>

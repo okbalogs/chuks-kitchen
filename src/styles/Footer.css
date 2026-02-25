@@ -1,27 +1,28 @@
 .footer {
     background-color: #5D4037;
     color: #e0e0e0;
-    padding: 60px 0 30px;
+    padding: 36px 0 16px;
     font-family: var(--font-family);
     position: relative;
+    min-height: 350px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 32px;
+    margin-bottom: 20px;
 }
 
 .footer-logo {
     font-family: var(--font-script);
     font-size: 2rem;
     color: #FF7F50;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .brand-description {
-    line-height: 1.6;
+    line-height: 1.5;
     max-width: 300px;
     color: #ccc;
 }
@@ -29,7 +30,7 @@
 .footer-column h4 {
     color: #fff;
     font-size: 1.1rem;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     font-weight: 500;
 }
 
@@ -37,7 +38,7 @@
 .footer-column p {
     display: block;
     color: #bbb;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s;
@@ -49,7 +50,7 @@
 
 .footer-divider {
     border-top: 1px dashed rgba(255, 255, 255, 0.2);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .footer-bottom {
