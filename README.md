@@ -233,7 +233,7 @@ Any component can access the cart by calling the `useCart()` hook.
 
 ```bash
 # Clone the repository
-git clone <https://github.com/okbalogs/chuks-kitchen>
+git clone https://github.com/okbalogs/chuks-kitchen
 cd chuks-kitchen
 
 # Install dependencies
