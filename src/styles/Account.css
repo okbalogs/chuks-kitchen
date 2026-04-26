@@ -1,0 +1,223 @@
+.page-account {
+    min-height: 60vh;
+    padding-top: 48px;
+    padding-bottom: 80px;
+}
+
+.account-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    color: #666;
+}
+
+.account-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Sidebar */
+.account-sidebar {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.account-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.account-identity h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 4px;
+}
+
+.account-identity p {
+    font-size: 0.85rem;
+    color: #888;
+    word-break: break-all;
+}
+
+.account-nav {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.account-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: background 0.15s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.account-nav-link:hover {
+    background: #fff8f5;
+    color: var(--color-primary);
+}
+
+.logout-link {
+    color: #e53e3e;
+}
+
+.logout-link:hover {
+    background: #fff5f5;
+    color: #c53030;
+}
+
+/* Main content */
+.account-main {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 40px 40px 48px;
+}
+
+.account-main h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 6px;
+}
+
+.account-main-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+}
+
+.account-error {
+    color: #e53e3e;
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+}
+
+.account-saved-banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #276749;
+    margin-bottom: 20px;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.account-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-field label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.account-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.account-input-icon {
+    position: absolute;
+    left: 14px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+.account-input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #333;
+    background: #fafafa;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.account-input:focus {
+    border-color: var(--color-primary);
+    background: #fff;
+}
+
+.account-input-readonly {
+    color: #888;
+    cursor: default;
+}
+
+.account-input-readonly:focus {
+    border-color: #ddd;
+    background: #fafafa;
+}
+
+.account-save-btn {
+    align-self: flex-start;
+    padding: 13px 36px;
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+    .account-main {
+        padding: 28px 20px 36px;
+    }
+    .account-save-btn {
+        width: 100%;
+    }
+}

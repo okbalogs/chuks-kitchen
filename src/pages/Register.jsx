@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, Phone } from 'lucide-react';
 import { GoogleIcon, AppleIcon } from '../components/SocialIcons';
 import Footer from '../components/Footer';
+import { useAuth } from '../context/AuthContext';
 import heroImage from '../assets/images/hero-family-new.png';
 import '../styles/Login.css';
 import '../styles/Register.css';
@@ -18,7 +19,10 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [errors, setErrors] = useState({});
+    const [apiError, setApiError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { register } = useAuth();
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -47,12 +51,23 @@ const Register = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (validateForm()) {
-            console.log('Register attempt:', formData);
+        setApiError('');
+        if (!validateForm()) return;
 
-            navigate('/login');
+        setLoading(true);
+        try {
+            await register({
+                email: formData.email,
+                password: formData.password,
+                phone: formData.phone,
+            });
+            navigate('/home');
+        } catch (err) {
+            setApiError(err.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -81,6 +96,7 @@ const Register = () => {
                         <h2>Create Your Account</h2>
                     </div>
 
+                    {apiError && <p className="error-message api-error">{apiError}</p>}
                     <form className="auth-form" onSubmit={handleSubmit}>
                         <div className="form-group register-form-group">
                             <label htmlFor="email">Email</label>
@@ -170,8 +186,8 @@ const Register = () => {
                         </div>
                         {errors.agreeToTerms && <p className="error-message" style={{ marginTop: '-20px', marginBottom: '20px' }}>{errors.agreeToTerms}</p>}
 
-                        <button type="submit" className="submit-btn" style={{ marginTop: '0' }}>
-                            Continue
+                        <button type="submit" className="submit-btn" style={{ marginTop: '0' }} disabled={loading}>
+                            {loading ? 'Creating account…' : 'Continue'}
                         </button>
 
                         <div className="divider">Or continue with</div>

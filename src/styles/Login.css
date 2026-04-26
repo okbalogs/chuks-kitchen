@@ -252,6 +252,15 @@
     margin-top: 6px;
 }
 
+.api-error {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
 @media (max-width: 968px) {
     .login-container {
         grid-template-columns: 1fr;
