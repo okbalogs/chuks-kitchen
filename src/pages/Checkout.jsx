@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../utils/api';
 import { CheckCircle } from 'lucide-react';
 import '../styles/Checkout.css';
 
@@ -10,9 +12,11 @@ const TAX = 0;
 
 const Checkout = () => {
     const { cartItems, cartTotal, clearCart } = useCart();
+    const { user } = useAuth();
     const navigate = useNavigate();
     const [step, setStep] = useState('summary');
     const [loading, setLoading] = useState(false);
+    const [orderError, setOrderError] = useState('');
     const [promoCode, setPromoCode] = useState('');
     const [fulfillment, setFulfillment] = useState('delivery');
     const [specialInstructions, setSpecialInstructions] = useState('');
@@ -44,14 +48,37 @@ const Checkout = () => {
         setCardData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
     };
 
-    const handlePlaceOrder = (e) => {
+    const handlePlaceOrder = async (e) => {
         e.preventDefault();
+        setOrderError('');
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            setStep('success');
+
+        await new Promise(r => setTimeout(r, 1500));
+
+        try {
+            if (user) {
+                await api.post('/api/orders', {
+                    items: cartItems.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        quantity: item.quantity,
+                        options: item.selectedOptions || null,
+                    })),
+                    fulfillment_type: fulfillment,
+                    payment_method: paymentMethod,
+                    special_instructions: specialInstructions || undefined,
+                    delivery_address: fulfillment === 'delivery' ? deliveryData.address : undefined,
+                    contact_phone: deliveryData.contactPhone || undefined,
+                });
+            }
             clearCart();
-        }, 2000);
+            setStep('success');
+        } catch (err) {
+            setOrderError(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (cartItems.length === 0 && step !== 'success') {
@@ -300,6 +327,14 @@ const Checkout = () => {
                         </div>
                     )}
 
+                    {orderError && (
+                        <p className="payment-error">{orderError}</p>
+                    )}
+                    {!user && (
+                        <p className="payment-login-hint">
+                            <Link to="/login">Log in</Link> to save this order to your history.
+                        </p>
+                    )}
                     <p className="payment-disclaimer">
                         Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
                     </p>

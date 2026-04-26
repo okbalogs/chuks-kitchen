@@ -1,13 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Search from './Search';
-import heroFamily from '../assets/images/hero-family.jpg';
-import heroFood from '../assets/images/hero-food.png';
 import heroHome from '../assets/images/hero-home.png';
 import '../styles/Hero.css';
 
 const Hero = () => {
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = (value) => {
+        if (value.trim()) {
+            navigate(`/menu?q=${encodeURIComponent(value.trim())}`);
+        }
+    };
+
     return (
         <section className="hero-section">
             <div className="hero-bg-wrapper">
@@ -32,10 +39,9 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            <Search />
+            <Search value={query} onChange={setQuery} onSubmit={handleSubmit} />
         </section>
     );
 };
 
 export default Hero;
-

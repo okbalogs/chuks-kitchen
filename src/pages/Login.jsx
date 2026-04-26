@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { GoogleIcon, AppleIcon } from '../components/SocialIcons';
 import Footer from '../components/Footer';
+import { useAuth } from '../context/AuthContext';
 import heroImage from '../assets/images/hero-family-new.png';
 import '../styles/Login.css';
 
@@ -13,7 +14,10 @@ const Login = () => {
     });
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
+    const [apiError, setApiError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -44,13 +48,19 @@ const Login = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setApiError('');
+        if (!validateForm()) return;
 
-        if (validateForm()) {
-            console.log('Login attempt with:', formData);
-
+        setLoading(true);
+        try {
+            await login(formData.email, formData.password);
             navigate('/home');
+        } catch (err) {
+            setApiError(err.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -81,6 +91,7 @@ const Login = () => {
                         <h2>Login your Account</h2>
                     </div>
 
+                    {apiError && <p className="error-message api-error">{apiError}</p>}
                     <form className="auth-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="email">Email or phone number</label>
@@ -128,8 +139,8 @@ const Login = () => {
                             <Link to="#">Forgot Password?</Link>
                         </div>
 
-                        <button type="submit" className="submit-btn">
-                            Continue
+                        <button type="submit" className="submit-btn" disabled={loading}>
+                            {loading ? 'Signing in…' : 'Continue'}
                         </button>
 
                         <div className="divider">Or continue with</div>

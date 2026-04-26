@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Menu as MenuIcon, X } from 'lucide-react';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu as MenuIcon, X, User } from 'lucide-react';
 import Footer from './Footer';
+import { useAuth } from '../context/AuthContext';
 import '../styles/Layout.css';
 import '../styles/Navbar.css';
 
 const Layout = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+    const { user, logout } = useAuth();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
+
+    const handleLogout = () => {
+        closeMenu();
+        logout();
+        navigate('/');
+    };
 
     return (
         <div className="app-container">
@@ -29,7 +38,19 @@ const Layout = () => {
 
                     <div className="nav-actions">
                         <div className="nav-auth desktop-only">
-                            <Link to="/login" className="btn btn-primary login-btn">Login</Link>
+                            {user ? (
+                                <div className="nav-user-group">
+                                    <Link to="/account" className="nav-user-chip" onClick={closeMenu}>
+                                        <User size={16} />
+                                        <span>{user.name || user.email.split('@')[0]}</span>
+                                    </Link>
+                                    <button className="btn btn-outline-sm logout-nav-btn" onClick={handleLogout}>
+                                        Logout
+                                    </button>
+                                </div>
+                            ) : (
+                                <Link to="/login" className="btn btn-primary login-btn">Login</Link>
+                            )}
                         </div>
                         <button className="icon-btn mobile-menu-btn" onClick={toggleMenu}>
                             {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}

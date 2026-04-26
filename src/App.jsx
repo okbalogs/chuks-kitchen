@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+import { AuthProvider } from './context/AuthContext'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
@@ -10,28 +11,33 @@ import Checkout from './pages/Checkout'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Welcome from './pages/Welcome'
+import Orders from './pages/Orders'
+import Account from './pages/Account'
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Routes>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
 
-          <Route path="/" element={<Welcome />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Welcome />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-
-          <Route element={<Layout />}>
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/menu/:id" element={<FoodDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+            <Route element={<Layout />}>
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/menu/:id" element={<FoodDetails />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/account" element={<Account />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   )
 }
 
